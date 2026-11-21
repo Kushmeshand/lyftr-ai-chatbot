@@ -33,5 +33,5 @@ ALLOWED_ORIGINS: List[str] = [origin.strip() for origin in ALLOWED_ORIGINS_RAW.s
 
 ENABLE_FAILURE_SIMULATION = os.getenv("ENABLE_FAILURE_SIMULATION", "true").lower() in ("true", "1", "yes")
 
-LLM_MODEL = os.getenv("LLM_MODEL", "gemini/gemini-2.0-flash")
+LLM_MODEL = os.getenv("LLM_MODEL", "gemini/gemini-flash-lite-latest")
 DEFAULT_SYSTEM_PROMPT = os.getenv("DEFAULT_SYSTEM_PROMPT", "You are a helpful and concise AI assistant.")
