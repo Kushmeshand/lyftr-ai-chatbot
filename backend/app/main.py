@@ -48,11 +48,20 @@ app = FastAPI(
 # CORS setup
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS if "*" not in ALLOWED_ORIGINS else ["*"],
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/")
+def get_root():
+    return {
+        "status": "ok",
+        "service": "Lyftr AI Gateway",
+        "health": "/health",
+        "docs": "/docs"
+    }
 
 # Custom exception handlers ensuring strict {"detail": ...} JSON contract
 @app.exception_handler(RequestValidationError)

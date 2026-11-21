@@ -17,7 +17,19 @@ import {
   ShieldAlert
 } from 'lucide-react';
 
-const API_BASE = import.meta.env.VITE_BACKEND_URL || import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const getApiBase = () => {
+  const envUrl = import.meta.env.VITE_BACKEND_URL || import.meta.env.VITE_API_URL;
+  // If envUrl is missing or accidentally set to the Render dashboard management URL
+  if (!envUrl || envUrl.includes('dashboard.render.com')) {
+    if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      return 'https://lyftr-ai-chatbot-5bhv.onrender.com';
+    }
+    return 'http://localhost:8000';
+  }
+  return envUrl.replace(/\/+$/, '');
+};
+
+const API_BASE = getApiBase();
 
 // Generate clean unique session id on each page load: 1-128 chars
 const generateSessionId = () => `s-${Math.random().toString(36).substring(2, 10)}`;

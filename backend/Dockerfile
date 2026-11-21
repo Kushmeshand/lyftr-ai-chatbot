@@ -31,8 +31,9 @@ COPY tests/ /app/tests/
 ENV PYTHONUNBUFFERED=1 \
     DATABASE_URL=sqlite:////data/app.db \
     LITELLM_LOCAL_MODEL_COST_MAP=True \
-    LITELLM_MODE=PRODUCTION
+    LITELLM_MODE=PRODUCTION \
+    PORT=8000
 
 EXPOSE 8000
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "-m", "app.run"]
