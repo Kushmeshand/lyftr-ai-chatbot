@@ -2,7 +2,11 @@ import os
 from typing import List, Dict
 from dotenv import load_dotenv
 
+# Try loading from local backend directory and project root
 load_dotenv()
+_backend_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+load_dotenv(os.path.join(_backend_dir, ".env"))
+load_dotenv(os.path.join(os.path.dirname(_backend_dir), ".env"))
 
 # Disable LiteLLM external pricing sync for faster, offline-ready initialization
 os.environ["LITELLM_LOCAL_MODEL_COST_MAP"] = "True"
