@@ -18,10 +18,10 @@ def main():
 
     # 1. Key pool verification
     print(f"\n1. Checking Key Pool:")
-    print(f"   Configured keys: {len(KEY_POOL)}")
+    print(f"   Configured keys count: {len(KEY_POOL)}")
     for k in KEY_POOL:
-        masked = k["api_key"][:6] + "..." + k["api_key"][-4:] if len(k["api_key"]) > 10 else "PLACEHOLDER"
-        print(f"   - {k['key_id']}: {masked}")
+        is_set = bool(k["api_key"] and len(k["api_key"]) > 15 and "PASTE" not in k["api_key"])
+        print(f"   - {k['key_id']}: {'[LOADED]' if is_set else '[MISSING/INVALID]'}")
 
     if any("PASTE" in k["api_key"] or "placeholder" in k["api_key"] or "dummy" in k["api_key"] for k in KEY_POOL):
         print("\n❌ Error: Placeholder keys detected in .env!")
