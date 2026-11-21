@@ -8,8 +8,8 @@ A full-stack AI chatbot application featuring automatic multi-key failover acros
 
 - **Live Frontend (Vercel)**: `https://lyftr-chatbot-frontend.vercel.app` *(deploy repository to Vercel)*
 - **Live Backend (Render)**: `https://lyftr-chatbot-backend.onrender.com` *(deploy backend to Render)*
-- **Public GitHub Repository**: `https://github.com/your-username/lyftr-llm-chatbot`
-- **Demo Video (2-3 min)**: `https://www.loom.com/share/your-demo-video-id`
+- **Public GitHub Repository**: `https://github.com/Kushmeshand/lyftr-llm-chatbot`
+- **Demo Video (2-3 min)**: `https://drive.google.com/file/d/11bIFntfka4crR9JzO7Us5Un-xMnIJDi8/view?usp=drive_link`
 
 ---
 
